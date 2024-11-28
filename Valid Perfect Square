@@ -1,0 +1,18 @@
+class Solution:
+    def isPerfectSquare(self, num: int) -> bool:
+
+        left = 1
+        right = num
+
+        while left <= right:
+            midpoint = (left + right) // 2
+
+            perfect_square = midpoint * midpoint
+
+            if perfect_square == num:
+                return True
+            elif perfect_square > num:
+                right = midpoint - 1
+            else:
+                left = midpoint + 1
+        return False
