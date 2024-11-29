@@ -1,0 +1,22 @@
+class Solution:
+    def maxFrequencyElements(self, nums: List[int]) -> int:
+
+
+        hashMap = {}
+        maximum_frequency = 0
+        result = 0
+
+        for elements in nums:
+            if elements in hashMap:
+                hashMap[elements] += 1
+            else:
+                hashMap[elements] = 1
+
+
+            maximum_frequency = max(maximum_frequency, hashMap[elements])
+
+
+        for value in hashMap.values():
+            if value == maximum_frequency:
+                result += value
+        return result
