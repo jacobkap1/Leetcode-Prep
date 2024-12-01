@@ -1,0 +1,19 @@
+class Solution:
+    def divideArray(self, nums: List[int]) -> bool:
+
+
+        if len(nums) %2 != 0:
+            return False
+
+        hashMap = {}
+
+        for elements in nums:
+            if elements in hashMap:
+                hashMap[elements] += 1
+            else:
+                hashMap[elements] = 1
+
+        for key, value in hashMap.items():
+            if value %2 != 0:
+                return False
+        return True
