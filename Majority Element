@@ -1,0 +1,17 @@
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+
+        hashMap = {}
+
+        for elements in nums:
+            if elements in hashMap:
+                hashMap[elements] += 1
+            else:
+                hashMap[elements] = 1
+
+
+        n = len(nums) // 2
+
+        for key, value in hashMap.items():
+            if value > n:
+                return key
