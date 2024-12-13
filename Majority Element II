@@ -1,0 +1,19 @@
+class Solution:
+    def majorityElement(self, nums: List[int]) -> List[int]:
+
+        hashMap = {}
+        result = []
+
+        for elements in nums:
+            if elements in hashMap:
+                hashMap[elements] += 1
+            else:
+                hashMap[elements] = 1
+
+        majority = len(nums)//3
+
+        for key, value in hashMap.items():
+            if value > majority:
+                result.append(key)
+
+        return result
