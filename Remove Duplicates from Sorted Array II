@@ -1,0 +1,13 @@
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+
+        start = 2
+
+        for i in range(start, len(nums)):
+            if nums[i] != nums[start-2]:
+                nums[start] = nums[i]
+
+                start += 1
+            else:
+                continue
+        return start
