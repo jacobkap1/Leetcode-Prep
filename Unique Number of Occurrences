@@ -1,0 +1,19 @@
+class Solution:
+    def uniqueOccurrences(self, arr: List[int]) -> bool:
+
+        hashMap = {}
+        hashSet = set()
+
+        for elements in arr:
+            if elements in hashMap:
+                hashMap[elements] += 1
+            else:
+                hashMap[elements] = 1
+
+        for value in hashMap.values():
+            if value in hashSet:
+                return False
+            else:
+                hashSet.add(value)
+
+        return True
