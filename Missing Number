@@ -1,0 +1,14 @@
+class Solution:
+    def missingNumber(self, nums: List[int]) -> int:
+
+        hashMap = {}
+
+        for elements in nums:
+            if elements in hashMap:
+                hashMap[elements] += 1
+            else:
+                hashMap[elements] = 1
+
+        for x in range(len(nums) + 1):
+            if x not in hashMap:
+                return x
