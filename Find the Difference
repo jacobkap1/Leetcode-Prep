@@ -1,0 +1,20 @@
+class Solution:
+    def findTheDifference(self, s: str, t: str) -> str:
+
+        hashMap1 = {}
+        hashMap2 = {}
+
+        for x in s:
+            if x in hashMap1:
+                hashMap1[x] += 1
+            else:
+                hashMap1[x] = 1
+        for y in t:
+            if y in hashMap2:
+                hashMap2[y] += 1
+            else:
+                hashMap2[y] = 1
+
+        for key, value in hashMap2.items():
+            if key not in hashMap1 or hashMap1[key] != hashMap2[key]:
+                return key
