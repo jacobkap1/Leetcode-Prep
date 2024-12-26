@@ -1,0 +1,17 @@
+class Solution:
+    def areOccurrencesEqual(self, s: str) -> bool:
+
+        hashMap = {}
+
+        for elements in s:
+            if elements in hashMap:
+                hashMap[elements] += 1
+            else:
+                hashMap[elements] = 1
+
+        k = hashMap[s[0]]
+
+        for value in hashMap.values():
+            if value != k:
+                return False
+        return True
