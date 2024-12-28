@@ -1,0 +1,33 @@
+class Solution:
+    def checkAlmostEquivalent(self, word1: str, word2: str) -> bool:
+
+        hashMap1 = {}
+        hashMap2 = {}
+
+        for elements in word1:
+            if elements in hashMap1:
+                hashMap1[elements] += 1
+            else:
+                hashMap1[elements] = 1
+
+        for elements in word2:
+            if elements in hashMap2:
+                hashMap2[elements] += 1
+            else:
+                hashMap2[elements] = 1
+        for key in hashMap1:
+            if key in hashMap2:
+                if abs(hashMap1[key] - hashMap2[key]) > 3:
+                    return False
+            else:
+                if hashMap1[key] > 3:
+                    return False
+
+        for key in hashMap2:
+            if key in hashMap1:
+                if abs(hashMap2[key] - hashMap1[key]) > 3:
+                    return False
+            else:
+                if hashMap2[key] > 3:
+                    return False
+        return True
