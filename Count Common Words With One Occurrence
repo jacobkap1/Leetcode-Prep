@@ -1,0 +1,22 @@
+class Solution:
+    def countWords(self, words1: List[str], words2: List[str]) -> int:
+
+        hashMap1 = {}
+        hashMap2 = {}
+        number = 0
+
+        for elements in words1:
+            if elements in hashMap1:
+                hashMap1[elements] += 1
+            else:
+                hashMap1[elements] = 1
+
+        for elements in words2:
+            if elements in hashMap2:
+                hashMap2[elements] += 1
+            else:
+                hashMap2[elements] = 1
+        for key, value in hashMap1.items():
+            if hashMap1[key] == 1 and key in hashMap2 and hashMap2[key] == 1:
+                number += 1
+        return number
