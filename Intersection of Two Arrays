@@ -1,0 +1,11 @@
+class Solution:
+    def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
+
+        hashSet1 = set(nums1)
+        hashSet2 = set(nums2)
+        intersection = []
+
+        for elements in hashSet2:
+            if elements in hashSet1:
+                intersection.append(elements)
+        return intersection
