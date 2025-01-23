@@ -1,0 +1,18 @@
+class Solution:
+    def maxSubarrayLength(self, nums: List[int], k: int) -> int:
+
+        left = 0
+        result = 1
+        hashMap = {}
+
+        for right in range(len(nums)):
+            if nums[right] in hashMap:
+                hashMap[nums[right]] += 1
+            else:
+                hashMap[nums[right]] = 1
+
+            while hashMap[nums[right]] > k:
+                hashMap[nums[left]] -= 1
+                left +=1
+            result = max(result, right - left + 1)
+        return result
