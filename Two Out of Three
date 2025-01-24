@@ -1,0 +1,28 @@
+class Solution:
+    def twoOutOfThree(self, nums1: List[int], nums2: List[int], nums3: List[int]) -> List[int]:
+
+        hashSet1 = set(nums1)
+        hashSet2 = set(nums2)
+        hashSet3 = set(nums3)
+        hashMap = {}
+        result = []
+
+        for elements in hashSet1:
+            if elements in hashMap:
+                hashMap[elements] += 1
+            else:
+                hashMap[elements] = 1
+        for elements in hashSet2:
+            if elements in hashMap:
+                hashMap[elements] += 1
+            else:
+                hashMap[elements] = 1
+        for elements in hashSet3:
+            if elements in hashMap:
+                hashMap[elements] += 1
+            else:
+                hashMap[elements] = 1
+        for key, value in hashMap.items():
+            if value >=2:
+                result.append(key)
+        return result
