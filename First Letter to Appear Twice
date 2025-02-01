@@ -1,0 +1,10 @@
+class Solution:
+    def repeatedCharacter(self, s: str) -> str:
+
+        hashSet = set()
+
+        for letters in s:
+            if letters in hashSet:
+                return letters
+            else:
+                hashSet.add(letters)
