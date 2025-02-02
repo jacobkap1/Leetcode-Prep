@@ -1,0 +1,11 @@
+class Solution:
+    def makeGood(self, s: str) -> str:
+
+        stack = []
+
+        for letters in s:
+            if stack and abs(ord(stack[-1]) - ord(letters)) == 32:
+                stack.pop()
+            else:
+                stack.append(letters)
+        return "".join(stack)
